@@ -9,7 +9,7 @@ function TeacherItem() {
       <header>
         <img src="https://avatars1.githubusercontent.com/u/29052019?s=460&u=025826220524ecbad3ba135735c9333deafb0636&v=4" alt="Eduardo Kussler"/>
         <div>
-          <strong>Edaurdo Kussler</strong>
+          <strong>Eduardo Kussler</strong>
           <span>Matemática</span>
         </div>
       </header>
@@ -30,6 +30,8 @@ function TeacherItem() {
         </button>
       </footer>
     </article>
+
+    
   );
 }
 

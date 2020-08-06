@@ -1,6 +1,9 @@
 #page-teacher-list {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 
@@ -14,7 +17,6 @@
 
 #search-teachers .input-block {
   position: relative;
-  padding: 0 3.2rem;
 } 
 
 #search-teachers .input-block + .input-block {
