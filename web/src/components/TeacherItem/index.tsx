@@ -2,37 +2,53 @@ import React from 'react';
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
+import api from '../../services/api';
 
-function TeacherItem() {
+interface TeacherProps {
+  name: string;
+  avatar: string;
+  subject: string;
+  bio: string;
+  cost: number;
+  whatsapp: string;
+  id: number;
+}
+
+const TeacherItem: React.FC<TeacherProps> = (props) => {
+
+  async function handleCreateNewConnection() {
+    await api.post('connections', {
+      user_id: props.id
+    });
+  }
+
   return (
     <article className="teacher-item">
       <header>
-        <img src="https://avatars1.githubusercontent.com/u/29052019?s=460&u=025826220524ecbad3ba135735c9333deafb0636&v=4" alt="Eduardo Kussler"/>
+        <img src={props.avatar} alt={props.name}/>
         <div>
-          <strong>Eduardo Kussler</strong>
-          <span>Matemática</span>
+          <strong>{props.name}</strong>
+          <span>{props.subject}</span>
         </div>
       </header>
       <p>
-             Melhor matemático das galáxias /s
-        <br/><br/>
-             Adora errar sinas e fazer demonstrações que não fazem nenhum sentido
+        {props.bio}
       </p>
 
       <footer>
         <p>
               Preço/hora 
-          <strong>R$ 80,00</strong>
+          <strong>R$ {props.cost}</strong>
         </p>
-        <button type="button">
+        <a target="_blank" onClick={handleCreateNewConnection} href={`https://wa.me/${props.whatsapp}`}>
           <img src={whatsappIcon} alt="Whatsapp"/>
               Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
 
     
   );
-}
+};
 
 export default TeacherItem;
